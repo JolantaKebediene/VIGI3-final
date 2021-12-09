@@ -5,7 +5,9 @@ const Form = () => {
     <div>
       <h1>Registracijos forma</h1>
       <form>
-        <label for="name_surname">Vardas Pavardė</label>
+        <label for="name">Vardas</label>
+        <input type="text"></input>
+        <label for="surname">Pavardė</label>
         <input type="text"></input>
         <label for="email">El.Paštas</label>
         <input type="email"></input>
