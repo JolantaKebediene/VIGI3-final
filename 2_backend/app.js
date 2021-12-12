@@ -36,10 +36,18 @@ app.get("/api/users", (req, res) => {
 // POST
 // -- add new movie
 app.post("/api/users", (req, res) => {
-  const userData = req.body; // user data from frontend
+  const name = req.body.name;
+  const surname = req.body.surname;
+  const email = req.body.email;
+  const age = req.body.age;
 
   // saving new user to User model
-  const user = new User(userData);
+  const user = new User({
+    name,
+    surname,
+    email,
+    age,
+  });
 
   user
     .save()

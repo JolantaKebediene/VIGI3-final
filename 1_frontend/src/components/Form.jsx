@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Form = () => {
   // state
@@ -22,7 +23,14 @@ const Form = () => {
 
   function handleClick(e) {
     e.preventDefault();
-    console.log(input);
+    const user = {
+      name: input.name,
+      surname: input.surname,
+      email: input.email,
+      age: +input.age,
+    };
+
+    axios.post("http://localhost:8000/api/users", user);
   }
   return (
     <div>
