@@ -27,7 +27,6 @@ mongoose
   .catch((err) => console.log(err));
 
 // Routes
-app.get("/", (req, res) => res.send("API is running...."));
 // GET
 // -- get all users
 app.get("/api/users", (req, res) => {
