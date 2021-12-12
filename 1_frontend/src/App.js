@@ -4,9 +4,10 @@ import List from "./components/List";
 
 function App() {
   return (
-    <div>
+    <div className="body-container">
       <Form />
-      <List/>
+      <hr />
+      <List />
     </div>
   );
 }

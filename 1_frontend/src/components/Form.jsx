@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Form.css";
 
 const Form = () => {
   // state
@@ -33,38 +34,54 @@ const Form = () => {
     axios.post("http://localhost:8000/api/users", user);
   }
   return (
-    <div>
-      <h1>Registracijos forma</h1>
-      <form>
-        <label htmlFor="userName">Vardas</label>
+    <div className="conteiner">
+      <h1 className="heading">Registracijos forma</h1>
+      <form className="form">
+        <label className="form_label" htmlFor="userName">
+          Vardas
+        </label>
         <input
+          className="form_input"
           onChange={handleChange}
           type="text"
           name="name"
           value={input.name}
         ></input>
-        <label htmlFor="userSurname">Pavardė</label>
+        <label className="form_label" htmlFor="userSurname">
+          Pavardė
+        </label>
         <input
+          className="form_input"
           onChange={handleChange}
           type="text"
           name="surname"
           value={input.surname}
         ></input>
-        <label htmlFor="userEmail">El.Paštas</label>
+        <label className="form_label" htmlFor="userEmail">
+          El.Paštas
+        </label>
         <input
+          className="form_input"
           onChange={handleChange}
           type="email"
           name="email"
           value={input.email}
         ></input>
-        <label htmlFor="userAge">Amžius</label>
+        <label className="form_label" htmlFor="userAge">
+          Amžius
+        </label>
         <input
+          className="form_input"
           onChange={handleChange}
           type="number"
           name="age"
           value={input.age}
         ></input>
-        <button onClick={handleClick} type="submit">
+        <button
+          className="button form_button"
+          onClick={handleClick}
+          type="submit"
+        >
           Registruoti
         </button>
       </form>

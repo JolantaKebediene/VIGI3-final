@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./List.css";
 
 const List = () => {
   // state
@@ -20,8 +21,8 @@ const List = () => {
   }, []);
 
   return (
-    <div>
-      <h2> Užsiregistravusių vartotojų sąrašas</h2>
+    <div className="conteiner">
+      <h2 className="heading"> Užsiregistravusių vartotojų sąrašas</h2>
       <table>
         <thead>
           <tr>
@@ -40,8 +41,12 @@ const List = () => {
               <td>{user.surname}</td>
               <td>{user.email}</td>
               <td>{new Date().getFullYear() - user.age}</td>
-              <td><button>✏️</button></td>
-              <td><button>❌</button></td>
+              <td>
+                <button className="button">✏️</button>
+              </td>
+              <td>
+                <button className="button">❌</button>
+              </td>
             </tr>
           ))}
         </tbody>
