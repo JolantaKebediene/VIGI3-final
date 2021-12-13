@@ -6,6 +6,10 @@ To start use project you need run frontend and backend, see scripts below.
 
 ## Available Scripts
 
+The node_modules is not a part of the cloned repository and should be downloaded using the ### `npm install` command to download all the defined and transitive dependencies mentioned in package.json file.
+
+### `npm install`
+
 In the project 1_frontend directory, you can run:
 
 ### `npm start`
