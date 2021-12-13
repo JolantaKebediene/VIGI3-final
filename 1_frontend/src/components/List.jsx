@@ -23,10 +23,15 @@ const List = () => {
   }, []);
 
   // functions
-  const editUser = () => {
+  const editUser = (e) => {
+    const id = e.target.className;
+    axios.put(`http://localhost:8000/api/users/${id}`);
     setMessageEdit("Vartotojas sekmingai atnaujintas");
   };
-  const deleteUser = () => {
+
+  const deleteUser = (e) => {
+    const id = e.target.className;
+    axios.delete(`http://localhost:8000/api/users/${id}`);
     setMessageDelete("Vartotojas ištrintas");
   };
 
@@ -46,23 +51,27 @@ const List = () => {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
+            <tr key={user._id}>
               <td>{user.name}</td>
               <td>{user.surname}</td>
               <td>{user.email}</td>
               <td>{new Date().getFullYear() - user.age}</td>
               <td>
-                <button onClick={editUser}>✏️</button>
+                <button className={user._id} onClick={editUser}>
+                  ✏️
+                </button>
               </td>
               <td>
-                <button onClick={deleteUser}>❌</button>
+                <button className={user._id} onClick={deleteUser}>
+                  ❌
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <p>{messageEdit}</p>
-      <p>{messageDelete}</p>
+      <p className="message">{messageEdit}</p>
+      <p className="message">{messageDelete}</p>
     </div>
   );
 };
