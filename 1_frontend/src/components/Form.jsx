@@ -10,6 +10,9 @@ const Form = () => {
     email: "",
     age: 0,
   });
+
+  const [message, setMessage] = useState("");
+
   // custom function
   function handleChange(e) {
     const { name, value } = e.target;
@@ -32,6 +35,7 @@ const Form = () => {
     };
 
     axios.post("http://localhost:8000/api/users", user);
+    setMessage("Vartuotojas išsauguotas sekmingai!");
   }
   return (
     <div className="conteiner">
@@ -77,14 +81,11 @@ const Form = () => {
           name="age"
           value={input.age}
         ></input>
-        <button
-          className="button form_button"
-          onClick={handleClick}
-          type="submit"
-        >
+        <button onClick={handleClick} type="submit">
           Registruoti
         </button>
       </form>
+      <p>{message}</p>
     </div>
   );
 };

@@ -12,6 +12,8 @@ const List = () => {
       age: 0,
     },
   ]);
+  const [messageEdit, setMessageEdit] = useState("");
+  const [messageDelete, setMessageDelete] = useState("");
 
   // effect
   useEffect(() => {
@@ -19,6 +21,14 @@ const List = () => {
       setUsers(result.data);
     });
   }, []);
+
+  // functions
+  const editUser = () => {
+    setMessageEdit("Vartotojas sekmingai atnaujintas");
+  };
+  const deleteUser = () => {
+    setMessageDelete("Vartotojas ištrintas");
+  };
 
   return (
     <div className="conteiner">
@@ -42,15 +52,17 @@ const List = () => {
               <td>{user.email}</td>
               <td>{new Date().getFullYear() - user.age}</td>
               <td>
-                <button className="button">✏️</button>
+                <button onClick={editUser}>✏️</button>
               </td>
               <td>
-                <button className="button">❌</button>
+                <button onClick={deleteUser}>❌</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <p>{messageEdit}</p>
+      <p>{messageDelete}</p>
     </div>
   );
 };

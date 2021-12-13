@@ -49,10 +49,7 @@ app.post("/api/users", (req, res) => {
     age,
   });
 
-  user
-    .save()
-    .then((result) => res.send({ message: "User saved" }))
-    .catch((err) => res.send({ message: "User not saved, try again latter" }));
+  user.save();
 });
 
 // PUT
@@ -61,9 +58,7 @@ app.put("/api/users/:id", (req, res) => {
   const userId = req.params.id;
   const updatedUser = req.body;
 
-  User.findByIdAndUpdate(userId, updatedUser)
-    .then((result) => res.json({ message: "User updated" }))
-    .catch((err) => res.json({ message: "User not updated, try again later" }));
+  User.findByIdAndUpdate(userId, updatedUser);
 });
 
 // DELETE
@@ -71,7 +66,5 @@ app.put("/api/users/:id", (req, res) => {
 app.delete("/api/users/:id", (req, res) => {
   const userId = req.params.id;
 
-  User.findByIdAndDelete(userId)
-    .then((result) => res.json({ message: "User deleted" }))
-    .catch((err) => res.send({ message: "User not deleted, try again later" }));
+  User.findByIdAndDelete(userId);
 });
