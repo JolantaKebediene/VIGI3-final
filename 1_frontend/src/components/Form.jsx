@@ -10,7 +10,6 @@ const Form = () => {
     email: "",
     age: 0,
   });
-
   const [message, setMessage] = useState("");
 
   // custom function
